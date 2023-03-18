@@ -157,12 +157,13 @@ h3 {
 }
 
 .account-header {
+	background-image: url("./img/dots_hero_section.svg");
+	background-repeat: no-repeat;
+	background-position: left;
 	display: flex;
 	flex-direction: column;
 	padding: 30px 30px;
 	gap: 16px;
-	background-image: radial-gradient(circle at 5px 5px, var(--secondary-blue) 5px, transparent 0);
-	background-size: 30px 30px;
 }
 
 .account-photo-container {
@@ -220,6 +221,13 @@ input:focus {
 	align-items: center;
 	gap: 100px;
 	margin-top: 100px;
+}
+
+.header-about-company {
+	background-image: url("./img/dots_about_section.svg");
+	background-repeat: no-repeat;
+	background-position: right;
+	padding: 3em;
 }
 
 .articles-about-container {
