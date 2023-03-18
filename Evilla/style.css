@@ -270,16 +270,15 @@ input:focus {
 	justify-content: center;
 	align-items: center;
 	width: 100%;
-	padding: 94px 100px;
+	padding: 94px 90px;
 	gap: 93px;
 }
 
 .propositions-container {
 	display: grid;
-	grid-template-columns: 664px 664px 664px;
-	grid-template-rows: 300px 300px;
+	grid-template-columns: 1fr 1fr 1fr;
+	grid-template-rows: 1fr 1fr;
 	gap: 20px;
-
 }
 
 .card {
@@ -289,7 +288,6 @@ input:focus {
 	border-radius: 8px;
 	padding: 2em;
 	gap: 2em;
-	width: 664px;
 	text-align: left;
 	line-height: 24px;
 }
@@ -355,4 +353,56 @@ input:focus {
 
 .card:nth-of-type(4) {
 	grid-area: 1/3/3/3;
+}
+
+/* section contact */
+
+#section-contact {
+	display: flex;
+	width: 100%;
+	justify-content: center;
+	align-items: center;
+	padding: 4em 4em;
+	gap: 4em;
+}
+
+.contact-description {
+	display: flex;
+	flex-direction: column;
+	align-items: start;
+	justify-content: center;
+	gap: 20px;
+}
+
+.contact-images-container {
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+}
+
+.contact-images {
+	display: flex;
+	gap: 2em;
+}
+
+.contact-image-background {
+	position: relative;
+	z-index: -1;
+	top: -100px;
+	background-color: var(--light);
+	border-radius: 8px;
+	width: 110%;
+	height: 100px;
+}
+
+.contact-image-container {
+	display: flex;
+	flex-direction: column;
+	gap: 1em;
+}
+
+.contact-image-container img {
+	border-radius: 4px;
+	height: 400px;
+	width: 500px;
 }
