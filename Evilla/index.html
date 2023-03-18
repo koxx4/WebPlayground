@@ -3,20 +3,50 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="style.css">
     <title>Evilla</title>
 </head>
 <body>
     <nav class="navbar">
-        <p class="logo">
-            Travelly
-        </p>
+		<div class="logo">
+			<span class="logo-dot yellow"></span>
+			<p>Evilla</p>
+		</div>
         <ul class="menu">
             <li><a class="menu-item" href="#">Home</a></li>
             <li><a class="menu-item" href="#">About</a></li>
-            <li><a class="menu-item" href="#">Contacts</a></li>
-            <li><a class="menu-item" href="#">Reviews</a></li>
-            <li><a class="menu-item" href="#">AAA</a></li>
+            <li><a class="menu-item" href="#">House tours</a></li>
+            <li><a class="menu-item" href="#">Contact</a></li>
+            <li><a class="menu-item button yellow" href="#">Book a meeting</a></li>
         </ul>
     </nav>
+	<section id="section-account">
+		<div class="account-container">
+			<header class="account-header">
+				<h1>Find your dream home today!</h1>
+				<p>Log in and book a house tour with our real estate agent!</p>
+			</header>
+			<form action="#" onclick="event.preventDefault()">
+				<div class="input-group">
+					<label>Login</label>
+					<input type="text" />
+				</div>
+				<div class="input-group">
+					<label>Password</label>
+					<input type="text" />
+					<div class="input-description">
+						<a href="#">No account? Register</a>
+						<a href="#">Forgot password</a>
+					</div>
+				</div>
+				<button type="submit" class="button yellow">Log in</button>
+			</form>
+		</div>
+		<div>
+			<div class="account-photo-container">
+				<img class="account-photo" alt="villa-image" src="./img/villa1.jpg">
+			</div>
+		</div>
+	</section>
 </body>
 </html>
