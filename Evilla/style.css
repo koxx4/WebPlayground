@@ -7,7 +7,7 @@
 	--primary-blue: #A5B3FF;
 	--secondary-blue: #E5EEFF;
 
-	--brown: #3B3B3B;
+	--brown: #6C4801;;
 	--yellow: #FFC044;
 
 	--outer-radius: 1rem;
@@ -64,6 +64,11 @@ h2 {
 	font-weight: bold;
 }
 
+h3 {
+	font-size: var(--medium-font-size);
+	font-weight: normal;
+}
+
 .navbar {
 	color: var(--dark);
 	background-color: white;
@@ -78,6 +83,10 @@ h2 {
 
 .yellow {
 	background-color: var(--yellow);
+}
+
+.primary-blue {
+	background-color: var(--primary-blue);
 }
 
 .button {
@@ -210,6 +219,7 @@ input:focus {
 	justify-content: space-around;
 	align-items: center;
 	gap: 100px;
+	margin-top: 100px;
 }
 
 .articles-about-container {
@@ -219,9 +229,10 @@ input:focus {
 	justify-content: center;
 	background-color: var(--light);
 	border-radius: 8px;
-	padding: 5em 8em;
-	gap: 20px;
-	margin: 0 100px;
+	padding: 5em 2em;
+	gap: 40px;
+	margin: 0px 100px;
+	width: 90%;
 }
 
 .article-about {
@@ -235,8 +246,105 @@ input:focus {
 	border-radius: 4px;
 	gap: 10px;
 	padding: 4em;
+	text-align: center;
 }
 
 .article-about h2{
 	color: var(--brown);
+}
+
+/* section propositions */
+
+#section-propositions {
+	display: flex;
+	flex-direction: column;
+	background-color: var(--secondary-blue);
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+	padding: 94px 100px;
+	gap: 93px;
+}
+
+.propositions-container {
+	display: grid;
+	grid-template-columns: 664px 664px 664px;
+	grid-template-rows: 300px 300px;
+	gap: 20px;
+
+}
+
+.card {
+	display: flex;
+	background-color: white;
+	box-shadow: 0px 4px 16px rgba(214, 214, 214, 0.25);
+	border-radius: 8px;
+	padding: 2em;
+	gap: 2em;
+	width: 664px;
+	text-align: left;
+	line-height: 24px;
+}
+
+.card[vertical] {
+	flex-direction: column;
+}
+
+.card[horizontal] {
+	flex-direction: row;
+}
+
+.card-text-content {
+	display: flex;
+	gap: 15px;
+	justify-content: center;
+}
+
+.card[horizontal] .card-text-content {
+	flex-direction: column;
+}
+
+.card[vertical] .card-text-content {
+	flex-direction: column;
+}
+
+.card img {
+	border-radius: 4px;
+	height: 90%;
+}
+
+.card[vertical] img {
+	width: 100%;
+
+}
+
+.card[horizontal] img {
+	height: 100%;
+}
+
+.card footer {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.card-footer-price {
+	color: var(--brown);
+	font-weight: bold;
+}
+
+.card:nth-of-type(1) {
+	grid-area: 1/1/3/1;
+}
+
+.card:nth-of-type(2) {
+	grid-area: 1/2/1/2;
+}
+
+.card:nth-of-type(3) {
+	grid-area: 2/2/2/2;
+}
+
+.card:nth-of-type(4) {
+	grid-area: 1/3/3/3;
 }
