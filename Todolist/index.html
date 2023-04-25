@@ -1,0 +1,41 @@
+<html>
+
+<head>
+	<title>Kalkulator</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<!-- jQuery Modal -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet"
+		integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous" />
+	<link href="style.css" rel="stylesheet" />
+	<script src="main.js" defer></script>
+	<meta charset="UTF-8" />
+</head>
+
+<body>
+	<main class="container">
+		<section id="input-section">
+			<form id="add-task-form" method="post">
+				<div class="form-group">
+					<label class="form-label" for="task-name-input">Wprowadź nazwę zadania</label>
+					<input class="form-control" name="task-name-input" type="text" />
+				</div>
+				<div class="form-group mb-2">
+					<label class="form-label" for="task-desc-input">Wprowadź treść zadania</label>
+					<textarea class="form-control" name="task-desc-input"></textarea>
+				</div>
+				<button id="add-task-btn" class="btn btn-primary" type="submit">Dodaj zadanie</button>
+				<button id="restore-task-btn" type="button" class="btn btn-secondary">Przywróć ostatnio usunięte zadanie</button>
+			</form>
+		</section>
+		<section id="tasks-section">
+			<h2>Lista zadań:</h2>
+			<div class="task-list list-group p-2">
+			</div>
+		</section>
+		<div class="modal" hidden></div>
+	</main>
+</body>
+
+</html>

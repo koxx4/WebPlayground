@@ -1,0 +1,32 @@
+* {
+	box-sizing: border-box;
+}
+
+.task-done {
+	background-color: #00ff0033;
+	text-decoration: line-through;
+}
+
+.line-thr {
+	text-decoration: line-through;
+}
+
+.task {
+	padding: 0.8em;
+	margin: 0.8em;
+	border-radius: 1em;
+	transition: border ease-in-out 50ms;
+}
+
+.task:hover {
+	border-color: black;
+	border-width: 2px;
+	border-style: solid;
+}
+
+.task-done-date {
+	/* CSS jest uposledzony z tymi przekresleniami
+	https: //stackoverflow.com/questions/1823341/how-do-i-get-this-css-text-decoration-override-to-work */
+	display: inline-block;
+	font-style: italic;
+}
