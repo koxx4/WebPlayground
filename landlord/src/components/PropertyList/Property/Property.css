@@ -1,0 +1,27 @@
+.property-image {
+	border-top-left-radius: 1em;
+	border-top-right-radius: 1em;
+	max-width: 1000px;
+}
+
+.listing-details{
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	border-bottom-left-radius: 1em;
+	border-bottom-right-radius: 1em;
+	border-top: solid 4px black;
+	background-color: #3a9e7877;
+	padding: 1em;
+	text-align: left;
+}
+
+.property-card {
+	max-width: 30%;
+	border-radius: 1em;
+	display: flex;
+	flex-direction: column;
+	-webkit-box-shadow: 8px 8px 24px 0px rgba(66, 68, 90, 1);
+	-moz-box-shadow: 8px 8px 24px 0px rgba(66, 68, 90, 1);
+	box-shadow: 4px 4px 10px 0px rgba(66, 68, 90, 1);
+}

@@ -1,0 +1,16 @@
+.button-container {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	gap: 2em;
+}
+
+.navbar {
+	background-color: #3a9e78;
+	color: white;
+}
+
+.brand-title {
+	font-weight: bold;
+	font-style: italic;
+}
