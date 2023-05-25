@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { Route, Routes } from 'react-router';
+import axios from 'axios';
+import Navbar from './components/Navbar/Navbar';
 import PropertyList from './components/PropertyList/PropertyList';
 import NewPropertyForm from './components/NewPropertyForm/NewPropertyForm';
 import Filter from './components/Filter/Filter';
-import Navbar from './components/Navbar/Navbar';
-import propertiesList from './data/properties.json';
+import Login from './components/User/Login';
+import { UserProvider } from './components/User/UserContext';
 
 function App() {
 	const [sortBy, setSortBy] = useState('');
@@ -15,7 +17,14 @@ function App() {
 
 	useEffect(() => {
 		//Load houses from json only once
-		setProperties(propertiesList);
+		axios
+			.get('/data/properties.json')
+			.then(response => {
+				setProperties(response.data);
+			})
+			.catch(error => {
+				console.error('Error loading properties from file: ', error);
+			});
 	}, []);
 
 	const handleNewPropertySubmit = newProperty => {
@@ -61,36 +70,49 @@ function App() {
 
 	return (
 		<>
-			<Routes>
-				<Route
-					exact
-					path="/"
-					element={
-						<>
-							<Navbar />
-							<section className="listing-section">
-								<PropertyList properties={filteredProperties} />
-								<Filter
-									sortBy={sortBy}
-									handleSortChange={handleSortChange}
-									priceFilter={priceFilter}
-									handlePriceFilterChange={handlePriceFilterChange}
-									roomsFilter={roomsFilter}
-									handleRoomsFilterChange={handleRoomsFilterChange}
-									cityFilter={cityFilter}
-									handleCityFilterChange={handleCityFilterChange}
-								/>
-							</section>
-						</>
-					}
-				/>
-				<Route
-					path="/add"
-					element={
-						<NewPropertyForm addNewPropertyHandler={handleNewPropertySubmit} />
-					}
-				/>
-			</Routes>
+			<UserProvider>
+				<Routes>
+					<Route
+						exact
+						path="/"
+						element={
+							<>
+								<Navbar />
+								<section className="listing-section">
+									<PropertyList
+										properties={filteredProperties}
+									/>
+									<Filter
+										sortBy={sortBy}
+										handleSortChange={handleSortChange}
+										priceFilter={priceFilter}
+										handlePriceFilterChange={
+											handlePriceFilterChange
+										}
+										roomsFilter={roomsFilter}
+										handleRoomsFilterChange={
+											handleRoomsFilterChange
+										}
+										cityFilter={cityFilter}
+										handleCityFilterChange={
+											handleCityFilterChange
+										}
+									/>
+								</section>
+							</>
+						}
+					/>
+					<Route
+						path="/add"
+						element={
+							<NewPropertyForm
+								addNewPropertyHandler={handleNewPropertySubmit}
+							/>
+						}
+					/>
+					<Route path="/login" element={<Login />} />
+				</Routes>
+			</UserProvider>
 		</>
 	);
 }
