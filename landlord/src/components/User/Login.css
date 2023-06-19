@@ -10,6 +10,9 @@
 
 .login-form-container {
 	display: flex;
-	flex-direction: column;
+	flex-direction: row;
 	align-items: center;
+	justify-content: center;
+	gap: 6em;
+	padding: 5em;
 }

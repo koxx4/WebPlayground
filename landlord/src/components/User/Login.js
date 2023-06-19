@@ -25,14 +25,14 @@ const Login = () => {
 		<div className="login-form-container">
 			<button
 				type="button"
-				className="btn btn-outline-light btn-lg"
+				className="btn btn-outline-dark btn-lg"
 				onClick={handleGoogleLogin}
 			>
 				<BsGoogle /> Sign in with Google
 			</button>
 			<button
 				type="button"
-				className="btn btn-outline-light btn-lg"
+				className="btn btn-outline-dark btn-lg"
 				onClick={handleGithubLogin}
 			>
 				<BsGithub /> Sign in with GitHub
