@@ -1,56 +1,42 @@
-import React, { useState, useContext } from 'react';
+import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import { UserContext } from './UserContext';
+import { logInWithGoogle, logInWithGithub } from '../../Firebase/UserService';
+import { BsGoogle, BsGithub } from 'react-icons/bs';
 import './Login.css';
 
 const Login = () => {
 	const navigate = useNavigate();
-	const { login } = useContext(UserContext);
-	const [email, setEmail] = useState('');
-	const [password, setPassword] = useState('');
 
-	const handleSubmit = e => {
+	const handleGoogleLogin = e => {
 		e.preventDefault();
-		login(email, password);
-		navigate('/');
+		logInWithGoogle().then(() => {
+			navigate('/');
+		});
+	};
+
+	const handleGithubLogin = e => {
+		e.preventDefault();
+		logInWithGithub().then(() => {
+			navigate('/');
+		});
 	};
 
 	return (
 		<div className="login-form-container">
-			<h2>Sign in</h2>
-			<form className="login-form" onSubmit={handleSubmit}>
-				<div className="form-group">
-					<label className="label-input">
-						Email:
-						<input
-							className="form-control"
-							type="email"
-							value={email}
-							onChange={e => setEmail(e.target.value)}
-						/>
-					</label>
-				</div>
-
-				<div className="form-group">
-					<label className="label-input">
-						Password:
-						<input
-							className="form-control"
-							type="password"
-							value={password}
-							onChange={e => setPassword(e.target.value)}
-						/>
-					</label>
-				</div>
-
-				<button
-					type="submit"
-					className="btn btn-primary btn-lg"
-					onClick={handleSubmit}
-				>
-					Sign in
-				</button>
-			</form>
+			<button
+				type="button"
+				className="btn btn-outline-light btn-lg"
+				onClick={handleGoogleLogin}
+			>
+				<BsGoogle /> Sign in with Google
+			</button>
+			<button
+				type="button"
+				className="btn btn-outline-light btn-lg"
+				onClick={handleGithubLogin}
+			>
+				<BsGithub /> Sign in with GitHub
+			</button>
 		</div>
 	);
 };

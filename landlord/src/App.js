@@ -6,7 +6,6 @@ import PropertyList from './components/PropertyList/PropertyList';
 import NewPropertyForm from './components/NewPropertyForm/NewPropertyForm';
 import Filter from './components/Filter/Filter';
 import Login from './components/User/Login';
-import { UserProvider } from './components/User/UserContext';
 
 function App() {
 	const [sortBy, setSortBy] = useState('');
@@ -70,49 +69,47 @@ function App() {
 
 	return (
 		<>
-			<UserProvider>
-				<Routes>
-					<Route
-						exact
-						path="/"
-						element={
-							<>
-								<Navbar />
-								<section className="listing-section">
-									<PropertyList
-										properties={filteredProperties}
-									/>
-									<Filter
-										sortBy={sortBy}
-										handleSortChange={handleSortChange}
-										priceFilter={priceFilter}
-										handlePriceFilterChange={
-											handlePriceFilterChange
-										}
-										roomsFilter={roomsFilter}
-										handleRoomsFilterChange={
-											handleRoomsFilterChange
-										}
-										cityFilter={cityFilter}
-										handleCityFilterChange={
-											handleCityFilterChange
-										}
-									/>
-								</section>
-							</>
-						}
-					/>
-					<Route
-						path="/add"
-						element={
-							<NewPropertyForm
-								addNewPropertyHandler={handleNewPropertySubmit}
-							/>
-						}
-					/>
-					<Route path="/login" element={<Login />} />
-				</Routes>
-			</UserProvider>
+			<Routes>
+				<Route
+					exact
+					path="/"
+					element={
+						<>
+							<Navbar />
+							<section className="listing-section">
+								<PropertyList
+									properties={filteredProperties}
+								/>
+								<Filter
+									sortBy={sortBy}
+									handleSortChange={handleSortChange}
+									priceFilter={priceFilter}
+									handlePriceFilterChange={
+										handlePriceFilterChange
+									}
+									roomsFilter={roomsFilter}
+									handleRoomsFilterChange={
+										handleRoomsFilterChange
+									}
+									cityFilter={cityFilter}
+									handleCityFilterChange={
+										handleCityFilterChange
+									}
+								/>
+							</section>
+						</>
+					}
+				/>
+				<Route
+					path="/add"
+					element={
+						<NewPropertyForm
+							addNewPropertyHandler={handleNewPropertySubmit}
+						/>
+					}
+				/>
+				<Route path="/login" element={<Login />} />
+			</Routes>
 		</>
 	);
 }

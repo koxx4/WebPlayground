@@ -1,13 +1,13 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import './Navbar.css';
-import React, { useContext } from 'react';
+import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { BsHousesFill } from 'react-icons/bs';
-import { UserContext } from '../User/UserContext';
+import { useUser, logOut } from '../../Firebase/UserService';
 
 function Navbar() {
 	const navigate = useNavigate();
-	const { loggedInUser, logout } = useContext(UserContext);
+	const user = useUser();
 
 	const handleAddNewClick = () => {
 		navigate('/add');
@@ -16,6 +16,11 @@ function Navbar() {
 	const handleLoginRedirect = () => {
 		navigate('/login');
 	};
+
+	const handleLogout = () => {
+		logOut();
+	};
+
 
 	return (
 		<nav className="navbar">
@@ -34,18 +39,16 @@ function Navbar() {
 				>
 					Lorem ipsum
 				</a>
-				{loggedInUser ? (
+				{user ? (
 					<>
 						<button
 							className="btn btn-outline-light"
-							onClick={logout}
+							onClick={handleLogout}
 						>
 							Sign out
 						</button>
 						<div className="user-logged">
-							You're signed in as {loggedInUser.firstName}{' '}
-							{loggedInUser.lastName}. You logged total{' '}
-							{loggedInUser.loginCount} times.
+							You're signed in as {user.displayName}
 						</div>
 					</>
 				) : (
